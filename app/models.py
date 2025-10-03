@@ -8,6 +8,7 @@ class Usuario(db.Model):
     creado_en = db.Column(db.DateTime, default=db.func.current_timestamp())
 
     def to_dict(self):
+        # solo debo traer 3 usuarios
         return {
             'id': self.id,
             'nombre': self.nombre,
