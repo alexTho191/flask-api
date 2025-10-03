@@ -14,12 +14,3 @@ class Usuario(db.Model):
             'email': self.email,
             'creado_en': self.creado_en.strftime("%Y-%m-%d %H:%M:%S") if self.creado_en else None
         }
-    
-    def login(self):
-        return {
-            'id': self.id,
-            'nombre': self.nombre
-        }
-    
-    def __repr__(self):
-        return f'<Usuario {self.nombre}>'
