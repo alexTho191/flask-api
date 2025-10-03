@@ -4,10 +4,12 @@ from app import db
 
 main = Blueprint('main', __name__)
 
+# Ruta raíz
 @main.route('/')
 def home():
     return jsonify({"mensaje": "API Flask funcionando 🚀"})
 
+# Ruta para traer todos los usuarios
 @main.route('/usuarios', methods=['GET'])
 def get_usuarios():
     try:

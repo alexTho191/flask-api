@@ -12,6 +12,8 @@ def create_app():
     # Inicializar la DB
     db.init_app(app)
 
+    app.config['JSON_AS_ASCII'] = False  # Soporte UTF-8 en JSON
+
     # Registrar rutas
     from app.routes import main
     app.register_blueprint(main)
