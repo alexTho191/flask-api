@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 db = SQLAlchemy()
 
@@ -13,6 +14,8 @@ def create_app():
     db.init_app(app)
 
     app.config['JSON_AS_ASCII'] = False  # Soporte UTF-8 en JSON
+
+    CORS(app, resources={r"/*": {"origins": "*"}})
 
     # Registrar rutas
     from app.routes import main

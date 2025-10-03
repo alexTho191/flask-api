@@ -13,7 +13,7 @@ def home():
 @main.route('/usuarios', methods=['GET'])
 def get_usuarios():
     try:
-        usuarios = Usuario.query.all()
-        return jsonify([usuario.to_dict() for usuario in usuarios])
+        usuarios = Usuario.query.limit(3)
+        return jsonify([usuario.traer_usuario() for usuario in usuarios])
     except Exception as e:
         return jsonify({"error": str(e)}), 500

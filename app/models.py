@@ -7,11 +7,19 @@ class Usuario(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     creado_en = db.Column(db.DateTime, default=db.func.current_timestamp())
 
-    def to_dict(self):
-        # solo debo traer 3 usuarios
+    def traer_usuario(self):
         return {
             'id': self.id,
             'nombre': self.nombre,
             'email': self.email,
             'creado_en': self.creado_en.strftime("%Y-%m-%d %H:%M:%S") if self.creado_en else None
         }
+    
+    def login(self):
+        return {
+            'id': self.id,
+            'nombre': self.nombre
+        }
+    
+    def __repr__(self):
+        return f'<Usuario {self.nombre}>'
